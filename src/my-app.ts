@@ -13,6 +13,9 @@ export class MyApp extends LitElement {
   name = "Somebody";
 
   render() {
-    return html`<p>Hello, ${this.name}!</p>`;
+    return html`<div>
+      <p>Hello, ${this.name}!</p>
+      <slot></slot>
+    </div>`;
   }
 }

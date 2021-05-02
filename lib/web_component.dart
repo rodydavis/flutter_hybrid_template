@@ -5,10 +5,15 @@ class WebComponent extends StatelessWidget {
   const WebComponent({
     Key key,
     @required this.name,
+    @required this.baseUrl,
     @required this.bundle,
+    this.attributes = const {},
     this.title = '',
+    this.slot = '',
   }) : super(key: key);
-  final String name, bundle, title;
+  final String name, baseUrl, bundle, title;
+  final Map<String, String> attributes;
+  final String slot;
 
   String get source => '''<!DOCTYPE html>
 <html lang="en">
@@ -27,21 +32,23 @@ class WebComponent extends StatelessWidget {
         height: 100vh;
       }
     </style>
-  <script type="module" crossorigin src="$bundle"></script>
+  <script type="module" crossorigin src="$baseUrl/$bundle"></script>
 </head>
   <body>
-    <$name></$name>
+    <$name ${attributes.entries.map((e) => '${e.key}="${e.value}"').join(' ')}>
+      $slot
+    </$name>
   </body>
 </html> 
-        ''';
+''';
 
   @override
   Widget build(BuildContext context) {
     return InAppWebView(
-      initialOptions: InAppWebViewGroupOptions(
-        crossPlatform: InAppWebViewOptions(cacheEnabled: false),
+      initialData: InAppWebViewInitialData(
+        data: source,
+        baseUrl: Uri.parse(baseUrl),
       ),
-      initialData: InAppWebViewInitialData(data: source),
     );
   }
 }
