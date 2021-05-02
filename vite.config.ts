@@ -5,7 +5,7 @@ import { resolve } from "path";
 export default defineConfig({
   // base: "/bible/",
   build: {
-    outDir: "build/web",
+    outDir: "docs",
     // lib: {
     //   entry: "src/bible-app.ts",
     //   formats: ["es"],

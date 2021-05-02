@@ -1,0 +1,5 @@
+import{r as e,e as t,n as r,h as o,T as n}from"./vendor.480e8d82.js";!function(e=".",t="__import__"){try{self[t]=new Function("u","return import(u)")}catch(r){const o=new URL(e,location),n=e=>{URL.revokeObjectURL(e.src),e.remove()};self[t]=e=>new Promise(((r,s)=>{const p=new URL(e,o);if(self[t].moduleMap[p])return r(self[t].moduleMap[p]);const c=new Blob([`import * as m from '${p}';`,`${t}.moduleMap['${p}']=m;`],{type:"text/javascript"}),l=Object.assign(document.createElement("script"),{type:"module",src:URL.createObjectURL(c),onerror(){s(new Error(`Failed to import: ${e}`)),n(l)},onload(){r(self[t].moduleMap[p]),n(l)}});document.head.appendChild(l)})),self[t].moduleMap={}}}("/assets/");var s=Object.defineProperty,p=Object.getOwnPropertyDescriptor,c=(e,t,r,o)=>{for(var n,c=o>1?void 0:o?p(t,r):t,l=e.length-1;l>=0;l--)(n=e[l])&&(c=(o?n(t,r,c):n(c))||c);return o&&c&&s(t,r,c),c};let l=class extends o{constructor(){super(...arguments),this.name="Somebody"}render(){return n`<p>Hello, ${this.name}!</p>`}};l.styles=e`
+    p {
+      color: blue;
+    }
+  `,c([t()],l.prototype,"name",2),l=c([r("my-app")],l);
