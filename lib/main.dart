@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-const APP_URL = 'https://rodydavis.github.io/flutter_hybrid_template/';
+import 'web_component.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,11 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: InAppWebView(
-        initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(cacheEnabled: false),
-        ),
-        initialUrlRequest: URLRequest(url: Uri.parse(APP_URL)),
+      body: WebComponent(
+        title: widget.title,
+        name: 'my-app',
+        bundle:
+            'https://rodydavis.github.io/flutter_hybrid_template/assets/main.js',
       ),
     );
   }
