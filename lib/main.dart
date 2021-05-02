@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-const APP_URL = 'http://localhost:8080/assets/index.html';
+const APP_URL = 'https://rodydavis.github.io/flutter_hybrid_template/';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
