@@ -36,14 +36,27 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: WebComponent(
-        title: widget.title,
-        name: 'my-app',
-        baseUrl: 'https://rodydavis.github.io/flutter_hybrid_template',
-        bundle: 'assets/main.js',
-        attributes: {
-          'name': widget.title,
-        },
+      body: Builder(
+        builder: (context) => WebComponent(
+          title: widget.title,
+          name: 'my-app',
+          baseUrl: 'https://rodydavis.github.io/flutter_hybrid_template',
+          bundle: 'assets/main.js?version=1.0.1',
+          attributes: {
+            'name': widget.title,
+          },
+          slot: '<button id="my-button">Talk back!</button>',
+          events: [
+            EventCallback(
+              event: 'click',
+              query: '#my-button',
+              onPressed: (_) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text('Clicked!')));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
