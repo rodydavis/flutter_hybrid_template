@@ -13,6 +13,11 @@ export default defineConfig({
     // manifest: true,
     rollupOptions: {
       // external: /^lit-element/,
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
+      },
       input: {
         main: resolve(__dirname, "index.html"),
         // editor: resolve(__dirname, "www/editor/index.html"),

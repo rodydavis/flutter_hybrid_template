@@ -38,6 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: InAppWebView(
+        initialOptions: InAppWebViewGroupOptions(
+          crossPlatform: InAppWebViewOptions(cacheEnabled: false),
+        ),
         initialUrlRequest: URLRequest(url: Uri.parse(APP_URL)),
       ),
     );
