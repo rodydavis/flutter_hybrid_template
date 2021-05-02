@@ -38,10 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Builder(
         builder: (context) => WebComponent(
-          title: widget.title,
           name: 'my-app',
-          baseUrl: 'https://rodydavis.github.io/flutter_hybrid_template',
-          bundle: 'assets/main.js?version=1.0.1',
+          bundle:
+              'https://rodydavis.github.io/flutter_hybrid_template/assets/main.js?version=1.0.1',
           attributes: {
             'name': widget.title,
           },

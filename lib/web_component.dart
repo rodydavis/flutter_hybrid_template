@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
@@ -6,14 +5,12 @@ class WebComponent extends StatelessWidget {
   const WebComponent({
     Key key,
     @required this.name,
-    @required this.baseUrl,
     @required this.bundle,
     this.attributes = const {},
-    this.title = '',
     this.slot = '',
     this.events = const [],
   }) : super(key: key);
-  final String name, baseUrl, bundle, title;
+  final String name, bundle;
   final Map<String, String> attributes;
   final String slot;
   final List<EventCallback> events;
@@ -25,7 +22,6 @@ class WebComponent extends StatelessWidget {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>$title</title>
     <style>
       body {
         padding: 0;
@@ -36,7 +32,7 @@ class WebComponent extends StatelessWidget {
         height: 100vh;
       }
     </style>
-  <script type="module" crossorigin src="$baseUrl/$bundle"></script>
+  <script type="module" crossorigin src="$bundle"></script>
 </head>
   <body>
     <$name ${attributes.entries.map((e) => '${e.key}="${e.value}"').join(' ')}>
@@ -55,10 +51,7 @@ class WebComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InAppWebView(
-      initialData: InAppWebViewInitialData(
-        data: source,
-        baseUrl: Uri.parse(baseUrl),
-      ),
+      initialData: InAppWebViewInitialData(data: source),
       onWebViewCreated: (controller) {
         for (final event in events)
           controller.addJavaScriptHandler(
