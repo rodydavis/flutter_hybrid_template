@@ -22,7 +22,7 @@
     "@material/mwc-list": "^0.20.0",
     "@material/mwc-select": "^0.20.0",
     "@material/mwc-top-app-bar-fixed": "^0.20.0",
-    "lit": "*"
+    "lit": "^2.0.0-rc.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
