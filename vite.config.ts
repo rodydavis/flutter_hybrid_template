@@ -5,7 +5,7 @@ import { resolve } from "path";
 export default defineConfig({
   base: "/flutter_hybrid_template/",
   build: {
-    outDir: "docs",
+    outDir: "build/web",
     rollupOptions: {
       // external: /^lit-element/,
       output: {
