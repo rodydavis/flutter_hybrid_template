@@ -73,13 +73,15 @@ class EventCallback {
   final dynamic Function(List<dynamic> args) onPressed;
 
   @override
-  String toString() {
-    final prefix =
-        query == null ? 'document.body' : 'document.querySelector("$query")';
-    return '''
-$prefix.addEventListener("$event", (e) => {
-  window.flutter_inappwebview.callHandler("$query", e);
-}, false);
-''';
-  }
+  String toString() => _source;
+
+  String get _prefix => query != null && query.isNotEmpty
+      ? 'document.querySelector("$query")'
+      : 'document.body';
+
+  String get _source => [
+        '$_prefix.addEventListener("$event", (e) => {',
+        '  window.flutter_inappwebview.callHandler("$query", e);',
+        '}, false);',
+      ].join('\n');
 }
