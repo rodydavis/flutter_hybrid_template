@@ -6,11 +6,6 @@ export default defineConfig({
   base: "/flutter_hybrid_template/",
   build: {
     outDir: "docs",
-    // lib: {
-    //   entry: "src/bible-app.ts",
-    //   formats: ["es"],
-    // },
-    // manifest: true,
     rollupOptions: {
       // external: /^lit-element/,
       output: {
@@ -20,7 +15,7 @@ export default defineConfig({
       },
       input: {
         main: resolve(__dirname, "index.html"),
-        // editor: resolve(__dirname, "www/editor/index.html"),
+        // editor: resolve(__dirname, "editor/index.html"),
       },
     },
   },
