@@ -15,7 +15,8 @@ export default defineConfig({
       },
       input: {
         main: resolve(__dirname, "index.html"),
-        // editor: resolve(__dirname, "editor/index.html"),
+        // TODO: Create a new module for each component you want to embed
+        // [name]: resolve(__dirname, "[name]/index.html"),
       },
     },
   },

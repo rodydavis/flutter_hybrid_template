@@ -1,16 +1,24 @@
 # flutter_hybrid_template
 
-A new Flutter project.
+A hybrid Flutter app with 2 way communication with web components.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- 2 Way Communication
+- Web Components w/ slots and attributes
+- Auto updates
+- Offline support
+- Web App
+- Github Pages
+- Vite dev server
+- Typescript
 
-A few resources to get you started if this is your first Flutter project:
+## Flutter Setup
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Flutter views code be in `lib` folder.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+There is a lit component already setup `my-app` and you can add new components for parts you want to break out.
+
+## Web Setup
+
+Web code will be in `src` folder.
